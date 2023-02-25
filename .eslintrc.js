@@ -13,5 +13,8 @@ module.exports = {
     project: "tsconfig.json",
     tsconfigRootDir: __dirname
   },
-  rules: {}
+  rules: {
+    "@typescript-eslint/array-type": "off",
+    "@typescript-eslint/no-extraneous-class": "off"
+  }
 }

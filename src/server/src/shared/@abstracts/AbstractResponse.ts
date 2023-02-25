@@ -1,2 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-extraneous-class
-export abstract class AbstractResponse {}
+export abstract class AbstractResponse {
+    protected constructor() {}
+}

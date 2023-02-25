@@ -2,7 +2,7 @@ import { EnvKeyCollection } from "../@constants/EnvKeyCollection";
 import "dotenv/config";
 
 export class EnvService {
-    private static _instance: EnvService | null;
+    private static _instance: EnvService | null = null;
 
     private constructor() {}
 
@@ -11,12 +11,12 @@ export class EnvService {
             this._instance = new EnvService();
         }
 
-        return this._instance
+        return this._instance;
     }
 
     /** Getters */
 
     public get serverPort(): number {
-        return Number(process.env[EnvKeyCollection.SERVER_PORT]) ?? 8200
+        return Number(process.env[EnvKeyCollection.SERVER_PORT]) ?? 8200;
     }
 }
