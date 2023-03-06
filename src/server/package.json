@@ -7,10 +7,10 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
-    "start": "nest start",
-    "start:dev": "nest start --watch",
+    "start:dev": "nest start --watch NODE_ENV=development",
+    "start:prod": "nest start --watch NODE_ENV=development",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main"
+    "build:prod": "node dist/main"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
