@@ -3,9 +3,14 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import "./../../../scripts"
+import { ConfigService } from '@nestjs/config';
+import { EnvCollection } from './shared/@constants/env.collection';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
+  const service = new ConfigService();
+  const serverPort = parseInt(service.get<number>(EnvCollection.SERVER_PORT));
+
+  await app.listen(serverPort);
 }
 bootstrap();
