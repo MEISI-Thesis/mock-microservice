@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { Client } from "pg";
-import { AbstractDatabase } from "src/shared/@abstracts/database.abstract";
-import { EnvCollection } from "src/shared/@constants/env.collection";
+import { AbstractDatabase } from "../../@abstracts/database.abstract";
+import { EnvCollection } from "./../../../shared/@constants/env.collection";
 
 @Injectable()
 export class DatabaseService extends AbstractDatabase {
