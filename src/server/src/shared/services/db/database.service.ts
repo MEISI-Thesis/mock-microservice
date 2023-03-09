@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { Client } from "pg";
 import { AbstractDatabase } from "../../@abstracts/database.abstract";
@@ -23,15 +23,27 @@ export class DatabaseService extends AbstractDatabase {
   }
 
   public async connect(): Promise<void> {
-    await this._client?.connect().catch((error) => error)
+    await this._client?.connect().catch((error) => {
+      throw new HttpException('InternalServerError', HttpStatus.INTERNAL_SERVER_ERROR, {
+        cause: error
+      });
+    })
   }
 
   public async disconnect(): Promise<void> {
-    await this._client?.end().catch((error) => error)
+    await this._client?.end().catch((error) => {
+      throw new HttpException('InternalServerError', HttpStatus.INTERNAL_SERVER_ERROR, {
+        cause: error
+      });
+    })
   }
 
   public async execute<T>(operator: string): Promise<T> {
-    return await this._client?.query(operator).catch((error) => error)
+    return await this._client?.query(operator).catch((error) => {
+      throw new HttpException('InternalServerError', HttpStatus.INTERNAL_SERVER_ERROR, {
+        cause: error
+      });
+    }) as T
   }
 
 }

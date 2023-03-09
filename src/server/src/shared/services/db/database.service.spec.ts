@@ -10,22 +10,6 @@ describe('DBService', () => {
     new ConfigService()
   );
 
-  describe('should handle an exception', () => {
-    it('on connection', () => {
-      expect(async () => { await databaseService.connect(); }).not.toThrow()
-    })
-
-    it('on execution', () => {
-      expect(async () => await databaseService.execute('dummyOperation')).not.toThrow()
-    })
-
-    it('on disconnection', () => {
-      expect(async () => { await databaseService.disconnect(); }).not.toThrow()
-    })
-
-  })
-
-  
   describe('should', () => {
     beforeEach(() => {
       jest.mock(('pg'), () => {
@@ -39,18 +23,17 @@ describe('DBService', () => {
       })
     })
 
-    afterEach(() => jest.clearAllMocks())
+    afterEach(async () => { 
+      await databaseService.disconnect();
+      jest.clearAllMocks();
+    })
     
     it('connect to the server', () => {
       expect(databaseService.connect()).toBeTruthy();
     })
 
     it('execute an operation on the server', () => {
-      expect(async () => await databaseService.execute('dummyOperation')).not.toThrow();
-    })
-
-    it('disconnect from the server', () => {
-      expect(databaseService.disconnect()).toBeTruthy();
+      void expect(async () => await databaseService.execute('dummyOperation')).rejects.toThrow();
     })
   })
 })
