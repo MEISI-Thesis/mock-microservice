@@ -3,7 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [ConfigModule.forRoot({
-    envFilePath: ['.development.env', '.production.env']
+    envFilePath: ['.env', '.production.env']
   })]
 })
 export class AppModule {}
