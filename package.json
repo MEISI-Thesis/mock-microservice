@@ -11,7 +11,7 @@
     "sync:fix": "syncpack fix-mismatches",
     "test": "jest"
   },
-  "devDependencies": {
+  "dependencies": {
     "@types/jest": "^29.4.0",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
@@ -26,9 +26,7 @@
     "supertest": "^6.3.3",
     "syncpack": "^9.8.4",
     "ts-jest": "^29.0.5",
-    "typescript": "^4.9.5"
-  },
-  "dependencies": {
+    "typescript": "^4.9.5",
     "@types/node": "^18.14.2",
     "ts-node": "^10.9.1"
   },
