@@ -1,7 +1,7 @@
-import { AbstractResponse } from "src/shared/@abstracts/response.abstract";
+import { AbstractResponse } from './../../@abstracts/response.abstract';
 
 export class CreateResponse<T> extends AbstractResponse<T> {
-  public constructor(
+  public constructor (
     resourceId: string,
     resourceArgs: T,
     private readonly _resourceURL: string
@@ -9,7 +9,7 @@ export class CreateResponse<T> extends AbstractResponse<T> {
     super(resourceId, resourceArgs);
   }
 
-  public get resourceURL(): string {
+  public get resourceURL (): string {
     return this._resourceURL;
   }
 }

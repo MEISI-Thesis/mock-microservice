@@ -1,10 +1,6 @@
 {
   "name": "server",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
-  "private": true,
-  "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
     "start:dev": "nest start --watch NODE_ENV=development",
@@ -13,6 +9,7 @@
     "build:prod": "node dist/main"
   },
   "dependencies": {
+    "@meisi-thesis/database": "https://github.com/MEISI-Thesis/database-microservice",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",
